@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOSSIÊ — Especialização em Advocacia Previdenciária e Trabalhista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #F2ECD8;
+      --paper-2: #EAE2C8;
+      --paper-3: #DDD4B8;
+      --paper-dark: #C8BC96;
+      --ink: #1A1510;
+      --ink-soft: #3D3428;
+      --ink-faded: #7A6D54;
+      --ink-ghost: #A89E84;
+      --red: #9B1C1C;
+      --red-faded: rgba(155, 28, 28, 0.15);
+      --red-stamp: rgba(155, 28, 28, 0.7);
+      --olive: #4A5230;
+      --olive-dim: rgba(74, 82, 48, 0.12);
+      --rule: rgba(26, 21, 16, 0.18);
+      --type: 'Courier Prime', 'Courier New', monospace;
+      --title: 'Oswald', sans-serif;
+      --elite: 'Special Elite', 'Courier New', monospace;
+      --t: all .2s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--type);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .5;
+    }
+
+    /* Coffee stain top-left */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(160, 120, 60, .08) 0%, rgba(160, 120, 60, .04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .container--narrow {
+      max-width: 860px;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .section--tight {
+      padding: 4rem 0;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .file-label {
+      font-family: var(--type);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+    }
+
+    .classified {
+      display: inline-block;
+      font-family: var(--title);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 2px solid var(--red);
+      padding: .2rem .875rem;
+      transform: rotate(-1.5deg);
+      opacity: .85;
+    }
+
+    .display {
+      font-family: var(--title);
+      font-size: clamp(3rem, 6.5vw, 6.5rem);
+      font-weight: 700;
+      line-height: .95;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .display em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .display-md {
+      font-family: var(--title);
+      font-size: clamp(1.75rem, 3vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+    }
+
+    .section-title {
+      font-family: var(--title);
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      line-height: 1.1;
+    }
+
+    .typed {
+      font-family: var(--elite);
+      font-size: .9375rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+
+    /* ── STAMP ── */
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--title);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--red-stamp);
+      border: 2.5px solid var(--red-stamp);
+      padding: .3rem 1rem;
+      border-radius: 3px;
+      transform: rotate(-3deg);
+      opacity: .9;
+    }
+
+    .stamp-olive {
+      color: rgba(74, 82, 48, .7);
+      border-color: rgba(74, 82, 48, .7);
+      transform: rotate(1.5deg);
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      font-family: var(--title);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: .875rem 2.25rem;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: var(--t);
+      white-space: nowrap;
+    }
+
+    .btn-ink {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .btn-ink:hover {
+      background: var(--ink-soft);
+      border-color: var(--ink-soft);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .btn-outline:hover {
+      background: rgba(26, 21, 16, .07);
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: var(--paper);
+      border-color: var(--red);
+    }
+
+    .btn-red:hover {
+      background: #7A1515;
+      border-color: #7A1515;
+    }
+
+    .btn::after {
+      content: ' →';
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(242, 236, 216, .96);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: .05rem;
+    }
+
+    .nav-logo-main {
+      font-family: var(--title);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--type);
+      font-size: .6rem;
+      color: var(--ink-faded);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-family: var(--title);
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      transition: var(--t);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-ref {
+      font-family: var(--type);
+      font-size: .6rem;
+      color: var(--ink-ghost);
+      letter-spacing: .08em;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: .75rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 0;
+      border-bottom: 2px solid var(--ink);
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    /* Aged edge vignette */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(160, 130, 70, .12) 0%, transparent 6%, transparent 94%, rgba(160, 130, 70, .12) 100%),
+        linear-gradient(to bottom, rgba(160, 130, 70, .08) 0%, transparent 8%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Three-hole punch marks */
+    .punch {
+      position: absolute;
+      left: 1.5rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--paper-dark);
+      border: 1px solid rgba(26, 21, 16, .2);
+    }
+
+    .punch:nth-child(1) {
+      top: 15%;
+    }
+
+    .punch:nth-child(2) {
+      top: 50%;
+    }
+
+    .punch:nth-child(3) {
+      top: 85%;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-content {
+      padding-bottom: 5rem;
+    }
+
+    .hero-file-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .file-id {
+      font-family: var(--type);
+      font-size: .65rem;
+      color: var(--ink-faded);
+      letter-spacing: .1em;
+    }
+
+    .hero-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: var(--type);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      max-width: 52ch;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-subtitle em {
+      font-style: italic;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-actions .divider-word {
+      font-family: var(--type);
+      font-size: .75rem;
+      color: var(--ink-ghost);
+      letter-spacing: .08em;
+    }
+
+    /* Hero dossier card */
+    .dossier-card {
+      background: var(--paper-2);
+      border: 2px solid var(--ink);
+      padding: 0;
+      position: relative;
+      align-self: stretch;
+    }
+
+    .dossier-card-top {
+      background: var(--ink);
+      color: var(--paper);
+      padding: .875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dossier-card-top .dtitle {
+      font-family: var(--title);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .dossier-card-top .dref {
+      font-family: var(--type);
+      font-size: .6rem;
+      color: rgba(242, 236, 216, .5);
+    }
+
+    .dossier-body {
+      padding: 1.5rem;
+    }
+
+    .dossier-field {
+      padding: .875rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+    }
+
+    .dossier-field:last-of-type {
+      border-bottom: none;
+    }
+
+    .df-key {
+      font-family: var(--type);
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+    }
+
+    .df-val {
+      font-family: var(--title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: .02em;
+    }
+
+    .df-val.small {
+      font-size: .9375rem;
+      font-weight: 500;
+      font-family: var(--type);
+      letter-spacing: .04em;
+      line-height: 1.5;
+    }
+
+    .dossier-stamp-area {
+      padding: 1.5rem;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .redacted {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--ink);
+      font-size: .75rem;
+      letter-spacing: .05em;
+      padding: .1rem .5rem;
+      user-select: none;
+    }
+
+    /* ── PERSONNEL STRIP ── */
+    .strip {
+      background: var(--paper-2);
+      border-bottom: 2px solid var(--ink);
+      padding: 2rem 0;
+    }
+
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .strip-person {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-direction: row;
+    }
+
+    .sp-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    .sp-info {
+      display: flex;
+      flex-direction: column;
+      gap: .1rem;
+    }
+
+    .sp-name {
+      font-family: var(--title);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .sp-role {
+      font-family: var(--type);
+      font-size: .6rem;
+      color: var(--ink-faded);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .strip-div {
+      width: 1px;
+      height: 36px;
+      background: var(--rule);
+    }
+
+    /* ── SOBRE ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .memo-header {
+      border: 2px solid var(--ink);
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      background: var(--paper-2);
+      position: relative;
+    }
+
+    .memo-header::before {
+      content: 'MEMORANDO INTERNO';
+      position: absolute;
+      top: -10px;
+      left: 1rem;
+      font-family: var(--title);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      background: var(--paper);
+      color: var(--ink-faded);
+      padding: 0 .5rem;
+    }
+
+    .memo-row {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      padding: .35rem 0;
+      border-bottom: 1px dotted var(--rule);
+    }
+
+    .memo-row:last-child {
+      border-bottom: none;
+    }
+
+    .memo-key {
+      font-family: var(--type);
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--ink-faded);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      min-width: 80px;
+    }
+
+    .memo-val {
+      font-family: var(--type);
+      font-size: .8125rem;
+      color: var(--ink-soft);
+    }
+
+    .memo-val strong {
+      color: var(--ink);
+    }
+
+    .obj-list {
+      border-top: 2px solid var(--ink);
+    }
+
+    .obj-item {
+      padding: 1.625rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 2.75rem 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      transition: background .2s;
+    }
+
+    .obj-item:hover {
+      background: var(--olive-dim);
+      margin: 0 -.5rem;
+      padding: 1.625rem .5rem;
+    }
+
+    .obj-n {
+      font-family: var(--title);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink-ghost);
+    }
+
+    .obj-text h4 {
+      font-family: var(--title);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+
+    .obj-text p {
+      font-family: var(--type);
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* ── METHODOLOGY ── */
+    .method-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .method-list {
+      border-top: 2px solid var(--ink);
+    }
+
+    .method-item {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .m-num {
+      font-family: var(--title);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--paper-3);
+      line-height: 1;
+      padding-top: .1rem;
+      transition: color .2s;
+    }
+
+    .method-item:hover .m-num {
+      color: var(--red);
+    }
+
+    .m-text h4 {
+      font-family: var(--title);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+
+    .m-text p {
+      font-family: var(--type);
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* Audience file */
+    .audience-file {
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .audience-file::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 40px 40px 0;
+      border-color: transparent var(--paper) transparent transparent;
+    }
+
+    .af-header {
+      background: var(--olive);
+      color: var(--paper);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .af-header-title {
+      font-family: var(--title);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .af-header-ref {
+      font-family: var(--type);
+      font-size: .6rem;
+      opacity: .6;
+    }
+
+    .af-body {
+      padding: 1.75rem;
+    }
+
+    .af-body h3 {
+      font-family: var(--title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin-bottom: .875rem;
+      line-height: 1.2;
+    }
+
+    .af-body .desc {
+      font-family: var(--type);
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .tag {
+      font-family: var(--type);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      padding: .25rem .75rem;
+    }
+
+    .aud-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .875rem;
+      padding: 1.25rem;
+      background: var(--paper-3);
+      border-top: 1px solid var(--rule);
+    }
+
+    .aud-cell .aud-key {
+      font-family: var(--type);
+      font-size: .55rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      margin-bottom: .2rem;
+    }
+
+    .aud-cell strong {
+      font-family: var(--title);
+      font-size: .9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ── SCHEDULE ── */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .module-card {
+      background: var(--paper-2);
+      border: 2px solid var(--ink);
+      overflow: hidden;
+      position: relative;
+      transition: background .2s;
+    }
+
+    .module-card:hover {
+      background: var(--paper);
+    }
+
+    .module-head {
+      background: var(--ink);
+      color: var(--paper);
+      padding: .875rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .module-head-n {
+      font-family: var(--title);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .module-head-p {
+      font-family: var(--type);
+      font-size: .6rem;
+      opacity: .6;
+      letter-spacing: .08em;
+    }
+
+    .lesson-row {
+      padding: .75rem 1.5rem;
+      border-bottom: 1px dotted var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .lesson-row:last-child {
+      border-bottom: none;
+    }
+
+    .lesson-row.exam {
+      background: var(--red-faded);
+      border-bottom: none;
+      border-top: 1px solid rgba(155, 28, 28, .2);
+    }
+
+    .lesson-name {
+      font-family: var(--type);
+      font-size: .78rem;
+      color: var(--ink-soft);
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .lesson-date {
+      font-family: var(--type);
+      font-size: .65rem;
+      font-weight: 700;
+      color: var(--ink-faded);
+      white-space: nowrap;
+    }
+
+    .lesson-row.exam .lesson-name {
+      font-family: var(--title);
+      color: var(--red);
+      font-weight: 700;
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .lesson-row.exam .lesson-date {
+      color: var(--red);
+    }
+
+    .schedule-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .schedule-note {
+      font-family: var(--type);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      border: 2px solid var(--rule);
+      padding: .875rem 2rem;
+    }
+
+    /* ── INVESTMENT ── */
+    .invest-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding-bottom: 3.5rem;
+      margin-bottom: 3.5rem;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .coupon-envelope {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      border: 2px solid var(--ink);
+      padding: 1.5rem 2rem;
+      margin-top: 1.75rem;
+      background: var(--paper-2);
+      position: relative;
+    }
+
+    .coupon-envelope::before {
+      content: 'CUPOM EXCLUSIVO';
+      position: absolute;
+      top: -.75rem;
+      left: .75rem;
+      font-family: var(--title);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      background: var(--paper);
+      color: var(--red);
+      padding: 0 .5rem;
+      border: 1px solid var(--red);
+    }
+
+    .coupon-key {
+      font-family: var(--type);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+    }
+
+    .coupon-code {
+      font-family: var(--title);
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: .08em;
+    }
+
+    .coupon-note {
+      font-family: var(--type);
+      font-size: .75rem;
+      color: var(--ink-soft);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pricing-card {
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+      padding: 1.875rem;
+      position: relative;
+      transition: background .2s;
+    }
+
+    .pricing-card:hover {
+      background: var(--paper);
+    }
+
+    .pricing-card.featured {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .pricing-card.featured:hover {
+      background: var(--ink-soft);
+    }
+
+    /* Dog-ear on featured */
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 32px 32px 0;
+      border-color: transparent var(--paper-dark) transparent transparent;
+    }
+
+    .pc-badge {
+      font-family: var(--title);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .pricing-card.featured .pc-badge {
+      color: rgba(242, 236, 216, .45);
+    }
+
+    .pc-name {
+      font-family: var(--type);
+      font-size: .8125rem;
+      color: var(--ink-soft);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .pricing-card.featured .pc-name {
+      color: rgba(242, 236, 216, .6);
+    }
+
+    .pc-price {
+      font-family: var(--title);
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.01em;
+    }
+
+    .pc-price sup {
+      font-size: 1.125rem;
+      vertical-align: top;
+      margin-top: .4rem;
+      display: inline-block;
+      font-weight: 400;
+    }
+
+    .pc-price sub {
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--ink-faded);
+    }
+
+    .pricing-card.featured .pc-price sub {
+      color: rgba(242, 236, 216, .5);
+    }
+
+    .pc-from {
+      font-family: var(--type);
+      font-size: .75rem;
+      text-decoration: line-through;
+      color: var(--ink-ghost);
+      margin-top: .4rem;
+    }
+
+    .pc-div {
+      height: 1px;
+      background: var(--rule);
+      margin: 1.5rem 0;
+    }
+
+    .pricing-card.featured .pc-div {
+      background: rgba(242, 236, 216, .15);
+    }
+
+    .pc-feats li {
+      font-family: var(--type);
+      font-size: .8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      margin-bottom: .75rem;
+      color: var(--ink-soft);
+      line-height: 1.4;
+    }
+
+    .pricing-card.featured .pc-feats li {
+      color: rgba(242, 236, 216, .75);
+    }
+
+    .pc-feats li.off {
+      color: var(--ink-ghost);
+    }
+
+    .pricing-card.featured .pc-feats li.off {
+      color: rgba(242, 236, 216, .25);
+    }
+
+    .feat-mark {
+      font-weight: 700;
+      flex-shrink: 0;
+      color: var(--olive);
+    }
+
+    .pricing-card.featured .feat-mark {
+      color: rgba(242, 236, 216, .8);
+    }
+
+    .feat-x {
+      flex-shrink: 0;
+      color: var(--ink-ghost);
+    }
+
+    /* ── STEPS ── */
+    .steps-section {
+      background: var(--paper-3);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .steps-list {
+      border-top: 2px solid var(--ink);
+    }
+
+    .step-item {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.25rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+
+    .step-item:last-child {
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .s-num {
+      font-family: var(--title);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--paper-dark);
+      line-height: 1;
+      transition: color .2s;
+    }
+
+    .step-item:hover .s-num {
+      color: var(--red);
+    }
+
+    .s-text h4 {
+      font-family: var(--title);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+
+    .s-text p {
+      font-family: var(--type);
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    .s-text .note {
+      font-family: var(--title);
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-top: .5rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      border-top: 2px solid var(--ink);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .faq-item:last-child {
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.375rem 0;
+      background: none;
+      border: none;
+      color: var(--ink);
+      font-family: var(--title);
+      font-size: .9rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--t);
+      gap: 2rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .faq-question:hover {
+      color: var(--red);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      font-family: var(--title);
+      font-size: .9rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-faded);
+      transition: var(--t);
+    }
+
+    .faq-item.active .faq-icon {
+      background: var(--red);
+      color: var(--paper);
+      border-color: var(--red);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 400px;
+    }
+
+    .faq-answer p {
+      font-family: var(--type);
+      padding: 0 0 1.5rem;
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3.5rem 0 2.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(242, 236, 216, .12);
+    }
+
+    .footer-brand .brand-name {
+      font-family: var(--title);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .25rem;
+    }
+
+    .footer-brand .brand-sub {
+      font-family: var(--type);
+      font-size: .6rem;
+      color: rgba(242, 236, 216, .4);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .footer-col h5 {
+      font-family: var(--title);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(242, 236, 216, .35);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+    }
+
+    .footer-links a {
+      font-family: var(--type);
+      font-size: .8125rem;
+      color: rgba(242, 236, 216, .55);
+      transition: var(--t);
+    }
+
+    .footer-links a:hover {
+      color: var(--paper);
+    }
+
+    .footer-phone {
+      font-family: var(--title);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .2rem;
+      letter-spacing: .04em;
+    }
+
+    .footer-hours {
+      font-family: var(--type);
+      font-size: .6rem;
+      color: rgba(242, 236, 216, .3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: .625rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+    }
+
+    .footer-bottom p {
+      font-family: var(--type);
+      font-size: .65rem;
+      color: rgba(242, 236, 216, .25);
+    }
+
+    .footer-stamp {
+      transform: rotate(-2deg);
+    }
+
+    /* ── PAGE FOLD LINES (decorative) ── */
+    .fold-line {
+      height: 0;
+      border-top: 1px dashed var(--rule);
+      margin: 0;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .dossier-card {
+        display: none;
+      }
+
+      .punch {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .method-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .invest-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width:768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-ref {
+        display: none;
+      }
+
+      .hero {
+        padding: 3.5rem 0 0;
+      }
+
+      .hero-content {
+        padding-bottom: 3rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .strip-inner {
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .strip-div {
+        display: none;
+      }
+
+      .aud-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: .75rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="nav-logo">
+        <img src="assets/image1.jpeg" alt="Faculdade SVT & OAB/MA">
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Faculdade SVT & OAB/MA</span>
+          <span class="nav-logo-sub">Escola Superior de Advocacia — ESA</span>
+        </div>
+      </div>
+      <span class="nav-ref">REF: ESP-PREV-TRB/2026 — CONFIDENCIAL</span>
+      <nav class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#cronograma">Módulos</a>
+        <a href="#investimento">Investimento</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="https://oabma.jacad.com.br/academico/processo-seletivo/" target="_blank" rel="noopener"
+          class="btn btn-outline">Área do Aluno</a>
+        <a href="#investimento" class="btn btn-red">Inscreva-se</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="punch"></div>
+    <div class="punch"></div>
+    <div class="punch"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content reveal">
+          <div class="hero-file-header">
+            <span class="classified">Inscrições Abertas</span>
+            <span class="file-id">PROC. Nº 2026/ESP-001 &nbsp;·&nbsp; TURMA I &nbsp;·&nbsp; INÍCIO: 16.01.2026</span>
+          </div>
+          <h1 class="hero-title display">
+            Especialização<br>em <em>Advocacia</em><br>Previdenciária<br>e Trabalhista.
+          </h1>
+          <p class="hero-subtitle">
+            Módulos 100% online e ao vivo. Domínio da prática administrativa, estratégia processual e visão integrada
+            das duas áreas <em>mais críticas</em> do direito brasileiro.
+          </p>
+          <div class="hero-actions">
+            <a href="#investimento" class="btn btn-red">Garantir vaga — 40% off</a>
+            <span class="divider-word">ou</span>
+            <a href="#sobre" class="btn btn-outline">Ver ementa completa</a>
+          </div>
+        </div>
+
+        <!-- Dossier card -->
+        <div class="dossier-card reveal reveal-delay-1">
+          <div class="dossier-card-top">
+            <span class="dtitle">Ficha do Curso</span>
+            <span class="dref">ESP/2026-I</span>
+          </div>
+          <div style="overflow:hidden; line-height:0;">
+            <img src="assets/image13.jpeg" alt="OAB/MA - Especialização"
+              style="width:100%; height:160px; object-fit:cover; display:block;">
+          </div>
+          <div class="dossier-body">
+            <div class="dossier-field">
+              <span class="df-key">Carga Horária</span>
+              <span class="df-val">360h</span>
+            </div>
+            <div class="dossier-field">
+              <span class="df-key">Duração</span>
+              <span class="df-val">12 meses</span>
+            </div>
+            <div class="dossier-field">
+              <span class="df-key">Módulos / Disciplinas</span>
+              <span class="df-val">6 / 24</span>
+            </div>
+            <div class="dossier-field">
+              <span class="df-key">Formato</span>
+              <span class="df-val small">Online · Ao Vivo<br>+ Gravações AVA</span>
+            </div>
+            <div class="dossier-field">
+              <span class="df-key">Início</span>
+              <span class="df-val" style="color:var(--red)">16.01.2026</span>
+            </div>
+            <div class="dossier-field">
+              <span class="df-key">Horário</span>
+              <span class="df-val small">Sex 19h–22h<br>Sáb 8h–12h / 14h–18h</span>
+            </div>
+          </div>
+          <div class="dossier-stamp-area">
+            <span class="stamp">Vagas disponíveis</span>
+            <span class="stamp stamp-olive">Desconto 40%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONNEL STRIP -->
+  <div class="strip reveal">
+    <div class="container strip-inner">
+      <div class="strip-person">
+        <img src="assets/image4.jpeg" alt="Kaio Vyctor Saraiva Cruz" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Kaio Vyctor Saraiva Cruz</span>
+          <span class="sp-role">Presidente — OAB/MA</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image5.jpeg" alt="Walbert Ducanges" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Walbert Ducanges</span>
+          <span class="sp-role">Coordenador Acadêmico</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image6.jpeg" alt="Silvio Carlos Leite Mesquita" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Silvio Carlos Leite Mesquita</span>
+          <span class="sp-role">Diretor-Geral — ESA</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image7.jpeg" alt="Denise De Fátima Gomes" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Denise De Fátima Gomes</span>
+          <span class="sp-role">Vice-Diretora Geral</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image8.jpeg" alt="Lilianne Maria F. Saraiva" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Lilianne Maria F. Saraiva</span>
+          <span class="sp-role">Diretoria de Planejamento</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image9.jpeg" alt="Luan Walter S. Costa Lima" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Luan Walter S. Costa Lima</span>
+          <span class="sp-role">Jovem Advocacia</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image10.jpeg" alt="Amanda Silva Madureira" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Amanda Silva Madureira</span>
+          <span class="sp-role">EaD e Extensão</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image11.jpeg" alt="Guilherme S. Santana" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Guilherme S. Santana</span>
+          <span class="sp-role">Tecnologia e Informação</span>
+        </div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-person">
+        <img src="assets/image12.jpeg" alt="Janaina Moreira da Silva" class="sp-avatar">
+        <div class="sp-info">
+          <span class="sp-name">Janaina Moreira da Silva</span>
+          <span class="sp-role">Assessora Executiva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fold-line"></div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="memo-header">
+            <div class="memo-row"><span class="memo-key">Para:</span><span class="memo-val"><strong>Advogados(as) que
+                  buscam domínio prático</strong></span></div>
+            <div class="memo-row"><span class="memo-key">Assunto:</span><span class="memo-val"><strong>Especialização em
+                  Advocacia Prev. e Trabalhista</strong></span></div>
+            <div class="memo-row"><span class="memo-key">Data:</span><span class="memo-val">Janeiro de 2026 — Turma
+                I</span></div>
+            <div class="memo-row"><span class="memo-key">Status:</span><span class="memo-val"><strong
+                  style="color:var(--red)">INSCRIÇÕES ABERTAS</strong></span></div>
+          </div>
+          <h2 class="section-title">Sobre o curso</h2>
+          <p class="typed" style="margin-top:1.5rem">A atuação na Prática Avançada na Advocacia Previdenciária e
+            Trabalhista exige mais do que
+            conhecimento da lei; exige domínio da prática administrativa, estratégia processual e uma visão integrada de
+            como essas duas áreas vitais se conectam.</p>
+          <p class="typed" style="margin-top:1rem">Esta Especialização foi desenhada para preencher exatamente essa
+            lacuna, oferecendo uma formação completa e rigorosamente atualizada, alinhada às demandas reais do mercado
+            jurídico.</p>
+          <p class="typed" style="margin-top:1rem">Estruturada em módulos que abrangem desde os fundamentos e benefícios
+            até o planejamento previdenciário avançado e a prática judicial, a especialização foca 100% na aplicação
+            prática do direito. <strong>Não se trata apenas do que fazer, mas de como fazer</strong>, analisando
+            precedentes e apontando
+            soluções reais para casos complexos.</p>
+
+          <h3 class="section-title" style="margin-top:2rem; font-size: 1.25rem;">Público-Alvo:</h3>
+          <p class="typed" style="margin-top:1rem">Poderão inscrever-se no curso exclusivamente os portadores de
+            <strong>diploma de curso superior em Direito</strong>, devidamente reconhecido pelo Ministério da Educação
+            (MEC), incluindo advogados(as), bacharéis em Direito, servidores(as) públicos(as) e demais profissionais da
+            área jurídica que atuem ou tenham interesse nas temáticas abordadas na presente especialização.</p>
+
+          <h3 class="section-title" style="margin-top:2rem; font-size: 1.25rem;">RESULTADOS ESPERADOS:</h3>
+          <p class="typed" style="margin-top:1rem">Ao final desta especialização, o advogado transporá a barreira da
+            insegurança técnica para assumir o controle total dos desafios práticos da profissão. O curso foi desenhado
+            para proporcionar um conhecimento sólido e imediatamente aplicável, permitindo que você análise e resolva
+            casos complexos com a confiança de um especialista.</p>
+        </div>
+
+        <div class="obj-list reveal reveal-delay-1">
+          <div class="obj-item">
+            <span class="obj-n">01</span>
+            <div class="obj-text">
+              <h4>Prática Administrativa e Judicial de Alta Performance</h4>
+              <p>Capacidade para analisar precedentes, instruir processos com robustez probatória e construir soluções
+                eficazes para demandas de alta complexidade.</p>
+            </div>
+          </div>
+          <div class="obj-item">
+            <span class="obj-n">02</span>
+            <div class="obj-text">
+              <h4>Visão Integrada e Estratégica</h4>
+              <p>Compreensão profunda da conexão vital entre as esferas Previdenciária e Trabalhista, permitindo atuar
+                onde essas áreas se cruzam para maximizar resultados.</p>
+            </div>
+          </div>
+          <div class="obj-item">
+            <span class="obj-n">03</span>
+            <div class="obj-text">
+              <h4>Gestão, Marketing e Escalabilidade</h4>
+              <p>Domínio das ferramentas modernas de advocacia através de um módulo exclusivo de Marketing Jurídico,
+                Gestão e Automação. Você aprenderá a prospectar clientes de forma ética, fortalecer sua autoridade
+                digital e utilizar a tecnologia para otimizar rotinas e escalar o crescimento do seu escritório.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGIA -->
+  <section class="section" id="metodologia">
+    <div class="container">
+      <div class="method-layout">
+        <div class="reveal">
+          <span class="file-label">Metodologia exclusiva</span>
+          <h2 class="section-title" style="margin-top:1rem">METODOLOGIA E SISTEMA AVALIATIVO:</h2>
+          <p class="typed" style="margin-top:1.5rem; margin-bottom: 1rem;">A estrutura acadêmica é organizada da
+            seguinte forma:</p>
+          <div class="method-list" style="margin-top:1.5rem">
+            <div class="method-item">
+              <span class="m-num">01</span>
+              <div class="m-text">
+                <p><strong>Estrutura Modular:</strong> O curso é dividido em 6 módulos, sendo cada módulo composto por 4
+                  disciplinas correlatas.</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <span class="m-num">02</span>
+              <div class="m-text">
+                <p><strong>Avaliação Integrada:</strong> Ao final de cada módulo, será aplicada uma única avaliação 100%
+                  online, abordando de forma conjunta o conteúdo das quatro disciplinas.</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <span class="m-num">03</span>
+              <div class="m-text">
+                <p><strong>Critério de Aprovação:</strong> A nota obtida nesta avaliação única será replicada como média
+                  final para todas as disciplinas do respectivo módulo. Para aprovação, exige-se média mínima de 7,0
+                  (sete).</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top:4rem;">DIFERENCIAIS ESTRATÉGICOS:</h2>
+          <div class="method-list" style="margin-top:2.5rem">
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p><strong>Flexibilidade Total:</strong> Curso 100% Online e Ao Vivo. Assista onde quiser.</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p><strong>Acesso Garantido:</strong> As gravações das aulas ao vivo ficam disponíveis no Ambiente
+                  Virtual de Aprendizagem (AVA) sempre às terças-feiras, após a realização da aula.</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p><strong>Avaliação Otimizada:</strong> Processo 100% online. O curso é dividido em 6 módulos (4
+                  disciplinas cada). A nota é definida por uma única avaliação ao final de cada módulo (média mínima
+                  7,0).</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p>Artigo Científico (TCC) opcional.</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p><strong>Corpo Docente:</strong> Professores de referência nacional na área.</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p><strong>Carga Horária Total:</strong> 360h/ 6 módulos/ 24 disciplinas de 15h cada</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p><strong>Duração:</strong> 12 meses |Prazo acesso às aulas: 15 meses.</p>
+              </div>
+            </div>
+            <div class="method-item"><span class="m-num">+</span>
+              <div class="m-text">
+                <p>Não é aula gravada! Diferente do EAD convencional, nossa metodologia é Síncrona (Ao Vivo). Você terá
+                  encontros reais com professores renomados, podendo tirar dúvidas na hora e interagir diretamente pelo
+                  chat.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top:4rem;">O Certificado de Conclusão do Curso:</h2>
+          <p class="typed" style="margin-top:1.5rem">O Certificado de Conclusão do Curso será expedido pela Faculdade
+            SVT aos alunos que obtiverem aprovação em todas as disciplinas. A certificação fica condicionada, ainda, à
+            inexistência de pendências documentais.</p>
+        </div>
+
+        <div class="audience-file reveal reveal-delay-1">
+          <div class="af-header">
+            <span class="af-header-title">Público-Alvo — Ficha Técnica</span>
+            <span class="af-header-ref">REF-TGT/001</span>
+          </div>
+          <div class="af-body">
+            <h3>Para quem<br>é este curso?</h3>
+            <p class="desc">Poderão inscrever-se no curso exclusivamente os portadores de diploma de curso superior em
+              Direito, devidamente reconhecido pelo Ministério da Educação (MEC), incluindo advogados(as), bacharéis em
+              Direito, servidores(as) públicos(as) e demais profissionais da área jurídica que atuem ou tenham interesse
+              nas temáticas abordadas na presente especialização.</p>
+            <div class="tags">
+              <span class="tag">Advogados(as)</span>
+              <span class="tag">Bacharéis</span>
+              <span class="tag">Servidores Públicos</span>
+              <span class="tag">Profissionais Jurídicos</span>
+            </div>
+          </div>
+          <div class="aud-grid">
+            <div class="aud-cell">
+              <div class="aud-key">Coordenação</div><strong>Walbert Ducanges</strong>
+            </div>
+            <div class="aud-cell">
+              <div class="aud-key">Início</div><strong>16.01.2026</strong>
+            </div>
+            <div class="aud-cell">
+              <div class="aud-key">Sextas</div><strong>19h – 22h</strong>
+            </div>
+            <div class="aud-cell">
+              <div class="aud-key">Sábados</div><strong>8h–12h / 14h–18h</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRONOGRAMA -->
+  <section class="section" id="cronograma">
+    <div class="container">
+      <div class="reveal">
+        <span class="file-label">Cronograma de aulas</span>
+        <h2 class="section-title" style="margin-top:1rem">6 módulos. <span style="color:var(--red)">24
+            disciplinas.</span></h2>
+        <p class="typed" style="margin-top:1rem;max-width:52ch">Progressão lógica do fundamento teórico à prática
+          avançada, estratégia processual e gestão do escritório.</p>
+      </div>
+      <div class="modules-grid reveal">
+        <div class="module-card">
+          <div class="module-head"><span class="module-head-n">Módulo 01 — Fundamentos</span><span
+              class="module-head-p">Jan–Mar 2026</span></div>
+          <div class="lesson-row"><span class="lesson-name">Teoria Geral da Seguridade Social: Princípios, Fontes e
+              Hermenêutica</span><span class="lesson-date">16–17/01</span></div>
+          <div class="lesson-row"><span class="lesson-name">Enquadramento de Segurados, Filiação e Manutenção da
+              Qualidade</span><span class="lesson-date">30–31/01</span></div>
+          <div class="lesson-row"><span class="lesson-name">Custeio Previdenciário: Salário-de-Contribuição, Carência e
+              Indenizações</span><span class="lesson-date">20–21/02</span></div>
+          <div class="lesson-row"><span class="lesson-name">Análise Estratégica do CNIS e Regularização de Vínculos e
+              Pendências</span><span class="lesson-date">06–07/03</span></div>
+          <div class="lesson-row exam"><span class="lesson-name">Prova do Módulo 01</span><span
+              class="lesson-date">12–15/03</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-head"><span class="module-head-n">Módulo 02 — Aposentadorias</span><span
+              class="module-head-p">Mar–Mai 2026</span></div>
+          <div class="lesson-row"><span class="lesson-name">Aposentadorias Programáveis: Idade, Tempo e Regras EC
+              103/19</span><span class="lesson-date">20–21/03</span></div>
+          <div class="lesson-row"><span class="lesson-name">Aposentadoria Especial: Enquadramento, Agentes Nocivos e
+              Jurisprudência</span><span class="lesson-date">10–11/04</span></div>
+          <div class="lesson-row"><span class="lesson-name">Prova Técnica: PPP, LTCAT e Teses de Conversão de Tempo
+              Especial</span><span class="lesson-date">24–25/04</span></div>
+          <div class="lesson-row"><span class="lesson-name">Direito Adquirido, Reafirmação da DER e Teses
+              Revisionais</span><span class="lesson-date">08–09/05</span></div>
+          <div class="lesson-row exam"><span class="lesson-name">Prova do Módulo 02</span><span
+              class="lesson-date">14–17/05</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-head"><span class="module-head-n">Módulo 03 — Benefícios</span><span
+              class="module-head-p">Mai–Jul 2026</span></div>
+          <div class="lesson-row"><span class="lesson-name">Benefícios por Incapacidade: Auxílios, Aposentadoria e Nexo
+              Causal</span><span class="lesson-date">22–23/05</span></div>
+          <div class="lesson-row"><span class="lesson-name">Benefícios Assistenciais (BPC/LOAS) e Auxílio-Inclusão e
+              MOB</span><span class="lesson-date">12–13/06</span></div>
+          <div class="lesson-row"><span class="lesson-name">Seguro Defeso e Salário Maternidade</span><span
+              class="lesson-date">26–27/06</span></div>
+          <div class="lesson-row"><span class="lesson-name">Pensão por Morte, Auxílio Reclusão e Dependentes</span><span
+              class="lesson-date">10–11/07</span></div>
+          <div class="lesson-row exam"><span class="lesson-name">Prova do Módulo 03</span><span
+              class="lesson-date">16–19/07</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-head"><span class="module-head-n">Módulo 04 — RPPS & Prática</span><span
+              class="module-head-p">Jul–Set 2026</span></div>
+          <div class="lesson-row"><span class="lesson-name">Estrutura e Planejamento do RPPS</span><span
+              class="lesson-date">24–25/07</span></div>
+          <div class="lesson-row"><span class="lesson-name">Prática Administrativa e Judicial do RPPS</span><span
+              class="lesson-date">07–08/08</span></div>
+          <div class="lesson-row"><span class="lesson-name">Prática Administrativa Previdenciária</span><span
+              class="lesson-date">21–22/08</span></div>
+          <div class="lesson-row"><span class="lesson-name">Prática Judicial Previdenciária e Planejamento</span><span
+              class="lesson-date">04–05/09</span></div>
+          <div class="lesson-row exam"><span class="lesson-name">Prova do Módulo 04</span><span
+              class="lesson-date">10–13/09</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-head"><span class="module-head-n">Módulo 05 — Trabalhista</span><span
+              class="module-head-p">Set–Nov 2026</span></div>
+          <div class="lesson-row"><span class="lesson-name">Contratação e Gestão de Jornadas no Contrato de
+              Trabalho</span><span class="lesson-date">18–19/09</span></div>
+          <div class="lesson-row"><span class="lesson-name">Remuneração, Saúde do Trabalhador e Responsabilidade
+              Civil</span><span class="lesson-date">02–03/10</span></div>
+          <div class="lesson-row"><span class="lesson-name">Formas de Extinção do Contrato e Verbas
+              Rescisórias</span><span class="lesson-date">16–17/10</span></div>
+          <div class="lesson-row"><span class="lesson-name">Prática Processual Trabalhista</span><span
+              class="lesson-date">30–31/10</span></div>
+          <div class="lesson-row exam"><span class="lesson-name">Prova do Módulo 05</span><span
+              class="lesson-date">05–08/11</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-head"><span class="module-head-n">Módulo 06 — Estratégia & Escala</span><span
+              class="module-head-p">Nov–Dez 2026</span></div>
+          <div class="lesson-row"><span class="lesson-name">Revisão De Benefícios E Teses Revisionais Lucrativos A
+              Advocacia</span><span class="lesson-date">13–14/11</span></div>
+          <div class="lesson-row"><span class="lesson-name">Planejamento Previdenciário para Advogados: Tributação para
+              Advogados e Escritórios da Advocacia</span><span class="lesson-date">27–28/11</span></div>
+          <div class="lesson-row"><span class="lesson-name">Marketing Jurídico, Gestão e Automação</span><span
+              class="lesson-date">04–05/12</span></div>
+          <div class="lesson-row"><span class="lesson-name">Metodologia da Pesquisa Jurídica</span><span
+              class="lesson-date">11–12/12</span></div>
+          <div class="lesson-row exam"><span class="lesson-name">Prova do Módulo 06</span><span
+              class="lesson-date">17–20/12</span></div>
+        </div>
+      </div>
+      <div class="schedule-footer reveal">
+        <div class="schedule-note">Sex: 19h–22h &nbsp;·&nbsp; Sáb: 8h–12h e 14h–18h</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fold-line"></div>
+
+  <!-- INVESTIMENTO -->
+  <section class="section" id="investimento">
+    <div class="container">
+      <div class="invest-header reveal">
+        <div>
+          <span class="file-label">Do investimento</span>
+          <h2 class="section-title" style="margin-top:1rem">DO INVESTIMENTO: PARCERIA COM A PROFESSORA GLEICY MANDELLI
+          </h2>
+        </div>
+        <div
+          style="font-family: var(--elite); font-size: .9375rem; line-height: 1.75; color: var(--ink-soft); margin-top: 1.5rem">
+          <p>O valor do curso será parcelado em 15 (quinze) parcelas mensais, conforme a categoria do inscrito.</p>
+          <p><strong>OPORTUNIDADE ÚNICA: 40% de desconto</strong></p>
+          <p>Em parceria com a professora Greicy Mandelli, liberamos um cupom exclusivo para você garantir sua vaga na
+            nossa Especialização com 40% de desconto!</p>
+          <p>Taxa única de inscrição no valor de R$ 199,00, válida para todas as categorias.</p>
+          <p>Confira a diferença nos valores:</p>
+          <p>✅ Jovem Advocacia (MA) De: 15x de R$ 199,00 Por: 15x de R$ 119,40</p>
+          <p>✅ Advocacia Adimplente (MA) De: 15x de R$ 299,00 Por: 15x de R$ 179,40</p>
+          <p>✅ Público Geral / Outros Estados De: 15x de R$ 499,00 Por: 15x de R$ 299,40</p>
+          <div class="coupon-envelope" style="margin-top:2rem">
+            <span class="coupon-key">Código do cupom:</span>
+            <span class="coupon-code">GREICYPREVI40</span>
+            <span class="coupon-note">→ Aplicar na etapa de matrícula (2ª etapa)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-grid reveal">
+        <div class="pricing-card">
+          <span class="pc-badge">Plano 01 — Jovem Advocacia (MA)</span>
+          <p class="pc-name">Para advogados jovens inscritos na OAB/MA</p>
+          <div class="pc-price"><sup>R$</sup>119<sub>,40/mês</sub></div>
+          <p class="pc-from">De: 15× R$ 199,00</p>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li><span class="feat-mark">+</span>15 parcelas mensais</li>
+            <li><span class="feat-mark">+</span>Acesso ao vivo e gravado</li>
+            <li><span class="feat-mark">+</span>Material de apoio incluso</li>
+            <li class="off"><span class="feat-x">–</span>Taxa de matrícula à parte (R$199)</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <span class="pc-badge">★ Plano 02 — Advocacia Adimplente (MA)</span>
+          <p class="pc-name">Para advogados adimplentes inscritos na OAB/MA</p>
+          <div class="pc-price"><sup>R$</sup>179<sub>,40/mês</sub></div>
+          <p class="pc-from">De: 15× R$ 299,00</p>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li><span class="feat-mark">+</span>15 parcelas mensais</li>
+            <li><span class="feat-mark">+</span>Acesso ao vivo e gravado</li>
+            <li><span class="feat-mark">+</span>Material de apoio incluso</li>
+            <li class="off"><span class="feat-x">–</span>Taxa de matrícula à parte (R$199)</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <span class="pc-badge">Plano 03 — Público Geral / Outros Estados</span>
+          <p class="pc-name">Aberto a todo o Brasil</p>
+          <div class="pc-price"><sup>R$</sup>299<sub>,40/mês</sub></div>
+          <p class="pc-from">De: 15× R$ 499,00</p>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li><span class="feat-mark">+</span>15 parcelas mensais</li>
+            <li><span class="feat-mark">+</span>Acesso ao vivo e gravado</li>
+            <li><span class="feat-mark">+</span>Material de apoio incluso</li>
+            <li class="off"><span class="feat-x">–</span>Taxa de matrícula à parte (R$199)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="section--tight steps-section">
+    <div class="container">
+      <div class="steps-grid">
+        <div class="reveal">
+          <span class="file-label">Procedimento de inscrição</span>
+          <h2 class="section-title" style="margin-top:1rem">Como realizar<br><span style="color:var(--red)">a
+              inscrição.</span></h2>
+          <div style="margin-top:3rem">
+            <a href="https://oabma.jacad.com.br/academico/processo-seletivo/" target="_blank" rel="noopener"
+              class="btn btn-ink">Iniciar inscrição agora</a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="steps-list">
+            <div class="step-item">
+              <span class="s-num">01</span>
+              <div class="s-text">
+                <h4>1ª Etapa: Inscrição</h4>
+                <p>Acesse o site exclusivo: https://oabma.jacad.com.br/academico/processo-seletivo/.</p>
+                <p>Realize sua inscrição preliminar anexando o Certificado ou Declaração de Conclusão de Curso.</p>
+                <p>Efetue o pagamento da taxa de R$ 199,00.</p>
+                <p>Após essa etapa a equipe da Esa entrará em contato para passar o passo a passo de como efetivar sua
+                  matrícula.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="s-num">02</span>
+              <div class="s-text">
+                <h4>2 ª Etapa: Matrícula (Após confirmação do pagamento)</h4>
+                <p>Assim que o pagamento da taxa for confirmado, a matrícula estará liberada. Siga o fluxo técnico
+                  rigorosamente:</p>
+                <p>Acesse novamente o link: https://oabma.jacad.com.br/academico/processo-seletivo/.</p>
+                <p>No canto superior direito, clique em "JÁ SOU INSCRITO".</p>
+                <p>Faça login com seus dados cadastrados.</p>
+                <p>Checklist Obrigatório de Documentos (Upload):</p>
+                <ul
+                  style="list-style-type: none; padding-left: 0; margin-bottom: 1rem; line-height: 1.6; font-size: 0.9375rem;">
+                  <li>✅ Comprovante de Endereço.</li>
+                  <li>✅ RG.</li>
+                  <li>✅ CPF (ou documento oficial que conste o número).</li>
+                  <li>✅ Título de Eleitor.</li>
+                  <li>✅ Diploma (frente e verso) ou Declaração de Conclusão de Curso.</li>
+                  <li>✅ Histórico Escolar (ou Declaração provisória).</li>
+                  <li>✅ Foto (pode ser de celular, com fundo branco/neutro).</li>
+                </ul>
+                <p class="note">Atenção: É nesta etapa de matrícula que você deverá inserir o cupom de desconto para
+                  garantir o valor reduzido nas mensalidades. CUPOM: GREICYPREVI40</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="file-label">Dúvidas frequentes</span>
+        <h2 class="section-title" style="margin-top:1rem">PRINCIPAIS DÚVIDAS SOBRE A PÓS-GRADUAÇÃO</h2>
+      </div>
+      <div class="faq-list reveal" style="margin-top:3rem">
+        <div class="faq-item">
+          <button class="faq-question"><span>1- Como funcionam as mensalidades e a cobrança?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>No ato da matrícula, você escolherá entre:</p>
+            <p>💳 Cartão de Crédito: Parcelamento do valor total do curso.</p>
+            <p>💳 Cartão de Crédito (Recorrência): O valor é debitado mensalmente (a cada 30 dias) sem comprometer o
+              limite total do seu cartão.</p>
+            <p>📄 Boleto Bancário: Deve ser emitido mensalmente pelo aluno na plataforma, na aba "Financeiro".</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>2- Como será a dinâmica das aulas?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>As aulas são 100% ao vivo pela plataforma digital.</p>
+            <p>📅 Início das aulas: 16 de janeiro de 2026.</p>
+            <p>⏰ Horários (Encontros Quinzenais):<br>• Sextas-feiras: 19h às 22h • Sábados: 8h às 12h e 14h às 18h</p>
+            <p>🎥 Perdeu a aula ao vivo? A gravação ficará disponível na plataforma sempre às terças-feiras, após a
+              realização da aula.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>3- Como acesso os materiais dos professores?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>Todos os materiais de apoio (slides, textos) serão disponibilizados para download dentro do Ambiente
+              Virtual do Aluno, na pasta da disciplina correspondente.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>4- Como serão as provas?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>O curso é 100% on-line. Ao final de cada módulo, será aplicada uma prova objetiva no Ambiente Virtual da
+              plataforma. No início do curso será divulgado um cronograma com a data das provas.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>5- O TCC é obrigatório?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>De acordo com a Resolução CNE/CES nº 1/2018, o TCC é opcional.</p>
+            <p>• Sem TCC: O aluno solicita o certificado após concluir as disciplinas e cumprir com todas as obrigações
+              do curso (12 meses).</p>
+            <p>• Com TCC: O aluno tem 3 meses adicionais após o término das aulas para entregar o trabalho (12 meses de
+              aulas + 3 meses para entrega do TCC).</p>
+            <p>Quando vale a pena optar pelo TCC? Embora o TCC seja opcional, sua realização é um diferencial
+              estratégico para o currículo acadêmico. Recomendamos fortemente a escolha da modalidade COM TCC se o seu
+              objetivo for:</p>
+            <p>🎓 Ingressar em Mestrado ou Doutorado: A produção acadêmica é frequentemente pontuada nos processos
+              seletivos;</p>
+            <p>📚 Docência no Ensino Superior: Essencial para quem deseja dar aulas em faculdades e universidades;</p>
+            <p>📝 Pesquisa Científica: Para quem deseja produzir e publicar artigos jurídicos;</p>
+            <p>✍️ Desenvolvimento de Habilidades: Para aprimorar a escrita acadêmica e a capacidade de pesquisa
+              aprofundada.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>6- Qual a duração do curso?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>Opção SEM TCC: Duração de 12 meses.</p>
+            <p>Opção COM TCC: Duração de 15 meses (12 meses de aulas + 3 meses para entrega do TCC).</p>
+            <p>Em ambos os casos, o acesso à área do aluno permanece liberado por 15 meses.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>7– Qual é a instituição que irá emitir a certificação?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>A certificação será emitida pela Faculdade SVT, que possui Portaria/MEC nº 1.808, de 18 de outubro de
+              2019, publicada no DOU nº 205, de 22 de outubro de 2019, para oferta de cursos de Pós-Graduação Lato Sensu
+              em nível de especialização.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>8- Já faço uma pós-graduação nos finais de semana e gostaria de fazer esta
+              também. Como ficam as faltas? E no caso de ausências por motivos religiosos?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <p>O aluno que não puder assistir à aula ao vivo poderá acessar a gravação, que ficará disponível na
+              plataforma (AVA) sempre a partir das terças-feiras subsequentes à realização da aula.</p>
+            <p>Nos casos de ausência por motivo justificado — incluindo conflito de horário com outra pós-graduação ou
+              observância de práticas religiosas —, o aluno deverá enviar o documento comprobatório para o e-mail
+              posesa@oabma.org.br. Dessa forma, a falta será abonada e o aluno poderá assistir à aula gravada em horário
+              de sua conveniência, garantindo a continuidade do aprendizado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">Faculdade SVT & OAB/MA</div>
+          <div class="brand-sub">Escola Superior de Advocacia — ESA</div>
+        </div>
+        <div class="footer-col">
+          <h5>Links</h5>
+          <div class="footer-links">
+            <a href="https://www.oabma.org.br/esa" target="_blank" rel="noopener">Site Oficial OAB/MA</a>
+            <a href="mailto:Posesa@oabma.org.br">Posesa@oabma.org.br</a>
+            <a href="https://instagram.com/esaoabma" target="_blank" rel="noopener">@esaoabma</a>
+            <a href="https://oabma.jacad.com.br/academico/processo-seletivo/" target="_blank" rel="noopener">Área do
+              Aluno</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Atendimento</h5>
+          <div class="footer-phone">(98) 98144-6253</div>
+          <div class="footer-phone">(98) 99133-2832</div>
+          <div class="footer-phone">(98) 2107-5400</div>
+          <div class="footer-hours">Seg–Qui: 8h–18h · Sex: 8h–17h</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Faculdade SVT & OAB/MA. Todos os direitos reservados.</p>
+        <div class="footer-stamp"><span class="stamp" style="font-size:.55rem;opacity:.4">Portaria MEC Nº
+            1.808/2019</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const icon = item.querySelector('.faq-icon');
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        const open = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('active'); i.querySelector('.faq-icon').textContent = '+'; });
+        if (!open) { item.classList.add('active'); icon.textContent = '−'; }
+      });
+    });
+
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .07 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (!t) return; e.preventDefault();
+        window.scrollTo({ top: t.getBoundingClientRect().top + pageYOffset - document.querySelector('.navbar').offsetHeight, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+
+</html>
